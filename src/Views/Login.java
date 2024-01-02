@@ -1,56 +1,76 @@
 package Views;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Login extends JFrame {
 
     JButton loginButton;
     JButton registerButton;
+    JButton audienceButton;
     JTextField userText;
     JPasswordField passwordText;
 
-
     public Login() {
         // 設置窗口標題和大小
-        setTitle("測試");
-        setSize(300, 200);
+        setTitle("Log in");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(750, 500);
+        setLocation(600, 300);
+        setLayout(new GridBagLayout());
 
         // 創建面板並添加元件
-        JPanel panel = new JPanel();
+        JPanel panel = new JPanel(new GridBagLayout());
         this.add(panel);
         placeComponents(panel);
-
     }
 
     private void placeComponents(JPanel panel) {
-        panel.setLayout(null);
+        GridBagConstraints gbc = new GridBagConstraints();
 
         // 創建標籤和輸入框
-        JLabel userLabel = new JLabel("名字:");
-        userLabel.setBounds(10, 20, 80, 25);
-        panel.add(userLabel);
+        JLabel userLabel = new JLabel("帳號：");
+        userLabel.setFont(new Font("Microsoft YaHei", Font.BOLD, 20));
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.insets = new Insets(10, 10, 10, 10);
+        panel.add(userLabel, gbc);
 
-        userText = new JTextField(20);
-        userText.setBounds(100, 20, 165, 25);
-        panel.add(userText);
+        userText = new JTextField(15);
+        userText.setFont(new Font("Microsoft YaHei", Font.BOLD, 20));
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        panel.add(userText, gbc);
 
-        JLabel passwordLabel = new JLabel("密碼:");
-        passwordLabel.setBounds(10, 50, 80, 25);
-        panel.add(passwordLabel);
+        JLabel passwordLabel = new JLabel("密碼：");
+        passwordLabel.setFont(new Font("Microsoft YaHei", Font.BOLD, 20));
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        panel.add(passwordLabel, gbc);
 
-        passwordText = new JPasswordField(20);
-        passwordText.setBounds(100, 50, 165, 25);
-        panel.add(passwordText);
+        passwordText = new JPasswordField(15);
+        passwordText.setFont(new Font("Microsoft YaHei", Font.BOLD, 20));
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        panel.add(passwordText, gbc);
 
         // 創建按鈕
-        loginButton = new JButton("確認");
-        loginButton.setBounds(10, 80, 80, 25);
-        panel.add(loginButton);
+        loginButton = new JButton("登入");
+        loginButton.setFont(new Font("Microsoft YaHei", Font.BOLD, 16));
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        panel.add(loginButton, gbc);
 
         registerButton = new JButton("註冊帳號");
-        registerButton.setBounds(100, 80, 160, 25);
-        panel.add(registerButton);
+        registerButton.setFont(new Font("Microsoft YaHei", Font.BOLD, 16));
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        panel.add(registerButton, gbc);
+
+        audienceButton=new JButton("我是觀眾");
+        audienceButton.setFont(new Font("Microsoft YaHei", Font.BOLD, 16));
+        audienceButton.setBorder(null);
+        panel.add(audienceButton,gbc);
     }
 
     public JButton getLoginButton() {
@@ -61,4 +81,16 @@ public class Login extends JFrame {
         return registerButton;
     }
 
+    public JButton getAudienceButton() {
+        return audienceButton;
+    }
+
+    public String getUserText() {
+        return userText.getText();
+    }
+
+    public String getPasswordText() {
+        return passwordText.getText();
+    }
 }
+

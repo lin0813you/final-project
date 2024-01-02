@@ -1,33 +1,49 @@
 package Controllers;
 
 import Views.Login;
-import Views.Register;
+import Views.Error;
+import Views.SignUp;
 
 public class CentralController {
     private static final CentralController instance = new CentralController();
     private Login loginView;
-    private Register registerView;
+    private SignUp signUpView;
+    private Error errorView;
+    //private Register registerView;
     private LoginController loginController;
+    private SignUpController signUpController;
 
     private CentralController() {
         this.loginView = new Login();
-        this.registerView = new Register();
+        this.errorView = new Error();
+        this.signUpView = new SignUp();
         this.loginController = new LoginController(this);
+        this.signUpController = new SignUpController(this);
     }
 
-    // ... 其他方法 ...
+
+
+    public void initControllers() {
+        loginController.initLoginController();
+        signUpController.initSignUpController();
+    }
+    public static CentralController getInstance() {
+        return instance;
+    }
 
     public Login getLoginView() {
         return loginView;
     }
 
-    public static CentralController getInstance() {
-        return instance;
+    public Error getErrorView() {
+        return errorView;
     }
 
-    public void initControllers() {
-        loginController.initController();
+    public SignUp getSignInView() {
+        return signUpView;
     }
+
+
 }
 
 
