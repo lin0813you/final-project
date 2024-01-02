@@ -1,48 +1,33 @@
 package Controllers;
 
-import Views.*;
-
+import Views.Login;
+import Views.Register;
 
 public class CentralController {
     private static final CentralController instance = new CentralController();
     private Login loginView;
     private Register registerView;
+    private LoginController loginController;
 
-
-
-    public static CentralController getInstance() {
-        return instance;
+    private CentralController() {
+        this.loginView = new Login();
+        this.registerView = new Register();
+        this.loginController = new LoginController(this);
     }
+
+    // ... 其他方法 ...
+
     public Login getLoginView() {
         return loginView;
     }
 
-    public Register getRegisterView() {
-        return registerView;
+    public static CentralController getInstance() {
+        return instance;
     }
 
-
-    public void showLoginView() {
-        if (loginView == null) {
-            loginView = new Login();
-        }
-        loginView.setVisible(true);
+    public void initControllers() {
+        loginController.initController();
     }
-    public void closeLoginView() {
-        loginView.setVisible(false);
-    }
-
-    public void showRegisterView() {
-        if (registerView == null) {
-            registerView = new Register();
-        }
-        registerView.setVisible(true);
-    }
-    public void closeRegisterView() {
-        registerView.setVisible(false);
-    }
-
-
-    // 其他方法...
 }
+
 

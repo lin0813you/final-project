@@ -1,15 +1,11 @@
-import Controllers.LoginController;
-
-import javax.swing.*;
-
 import Controllers.CentralController;
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            CentralController.getInstance().showLoginView();
-            LoginController loginController = new LoginController();
-            loginController.initController();
+            CentralController.getInstance().initControllers();
+            CentralController.getInstance().getLoginView().setVisible(true);
         });
     }
 }

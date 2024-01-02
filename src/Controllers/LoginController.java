@@ -1,20 +1,27 @@
 package Controllers;
 
-public class LoginController {
+import Views.Login;
 
-    public LoginController() {
+public class LoginController {
+    private CentralController centralController;
+    private Login loginView;
+
+    public LoginController(CentralController centralController) {
+        this.centralController = centralController;
+        this.loginView = centralController.getLoginView();
+    }
+
+    private void loginButtonClick() {
+        loginView.setVisible(false);
+    }
+
+    private void signupButtonClick() {
+        // 註冊邏輯
     }
 
     public void initController() {
-        CentralController.getInstance().getLoginView().getLoginButton().addActionListener(e -> loginButtonClick());
-        CentralController.getInstance().getLoginView().getRegisterButton().addActionListener(e -> signupButtonClick());
-    }
-
-    public void loginButtonClick(){
-        CentralController.getInstance().closeLoginView();
-    }
-    public void signupButtonClick(){
-        CentralController.getInstance().closeLoginView();
-        CentralController.getInstance().showRegisterView();
+        loginView.getLoginButton().addActionListener(e -> loginButtonClick());
+        loginView.getRegisterButton().addActionListener(e -> signupButtonClick());
     }
 }
+
