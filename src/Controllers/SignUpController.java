@@ -13,7 +13,7 @@ public class SignUpController {
 
     public SignUpController(CentralController centralController) {
         this.centralController = centralController;
-        this.signUpView = centralController.getSignInView();
+        this.signUpView = centralController.getSignUpView();
     }
 
     public void initSignUpController(){

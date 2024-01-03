@@ -31,6 +31,7 @@ public class LoginController {
             if (VerifyResult) {
                 if (type == User.UserType.REGULAR_USER) {
                     loginView.setVisible(false);
+                    centralController.getAllianceMainView().setVisible(true);
                     System.out.println("進入玩家主頁面");
                 }
                 else if (type == User.UserType.ADMINISTRATOR) {
@@ -50,7 +51,7 @@ public class LoginController {
 
     private void signupButtonClick() {
         loginView.setVisible(false);
-        centralController.getSignInView().setVisible(true);
+        centralController.getSignUpView().setVisible(true);
     }
 
 

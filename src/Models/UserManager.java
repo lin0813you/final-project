@@ -1,6 +1,7 @@
 package Models;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class UserManager {
     // 使用私有的靜態最終實例
@@ -47,9 +48,55 @@ public class UserManager {
         }
         return false; // 或者拋出一個異常，取決於你的需求
     }
+    //生成一個隨機User
+    public User generateRandomUser() {
+        Random random = new Random();
+        // 擴展的隨機英文名稱列表
+        String[] names = {
+                "Andy", "John", "Emily", "Grace", "Michael",
+                "Sarah", "Chris", "Laura", "David", "Sophia",
+                "Daniel", "Emma", "James", "Olivia", "Robert",
+                "Linda", "William", "Jessica", "Joseph", "Karen",
+                "Lisa", "Kevin", "Mary", "George", "Barbara",
+                "Jennifer", "Jason", "Susan", "Paul", "Elizabeth",
+                "Richard", "Helen", "Thomas", "Sandra", "Steven",
+                "Ashley", "Mark", "Kimberly", "Brian", "Donna",
+                "Edward", "Michelle", "Ronald", "Carol", "Anthony",
+                "Amanda", "Kenneth", "Melissa", "Charles", "Deborah"
+        };
+        String name = names[random.nextInt(names.length)];
+
+        // 生成隨機手機號碼
+        String phoneNumber = "09" + (100000000 + random.nextInt(900000000));
+
+        // 生成隨機密碼
+        String password = generateRandomPassword(8, 10,random);
+
+        // 返回新建的 User 物件
+        User newUser = new User(name, phoneNumber, password, User.UserType.REGULAR_USER);
+        addUser(newUser);
+        return newUser;
+    }
+    public ArrayList<User> generateRandomUsers(int count) {
+        ArrayList<User> users = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            users.add(generateRandomUser());
+        }
+        return users;
+    }
+
+    // 生成隨機密碼的輔助方法
+    private static String generateRandomPassword(int minLen, int maxLen,Random random) {
+        String charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        int len = minLen + random.nextInt(maxLen - minLen + 1);
+        StringBuilder password = new StringBuilder();
+        for (int i = 0; i < len; i++) {
+            password.append(charSet.charAt(random.nextInt(charSet.length())));
+        }
+        return password.toString();
+    }
 
 
 
-    // 其他管理用戶的方法...
 }
 

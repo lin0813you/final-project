@@ -1,10 +1,8 @@
 package Models;
 
-import java.util.ArrayList;
-
 public class User {
     // 定義私有屬性
-    private String userName; // 使用者名稱
+    private String name; // 使用者名稱
     private String phoneNumber; // 手機號碼
     private String password; // 密碼
     private UserType userType; // 使用者類別
@@ -20,20 +18,20 @@ public class User {
 
 
     // 建構子
-    public User(String userName, String phoneNumber, String password, UserType userType) {
-        this.userName = userName;
+    public User(String name, String phoneNumber, String password, UserType userType) {
+        this.name = name;
         this.phoneNumber = phoneNumber;
         this.password = password;
         this.userType = userType;
     }
 
     // getter 和 setter 方法
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPhoneNumber() {
