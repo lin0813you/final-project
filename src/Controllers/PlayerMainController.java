@@ -1,14 +1,17 @@
 package Controllers;
 
+import Models.Alliance;
 import Models.AllianceManager;
-import Models.User;
 import Models.UserManager;
-import Views.PlayerMain;
+import Views.PlayerMainView;
+
+import java.awt.*;
 
 public class PlayerMainController {
     private CentralController centralController;
-    private PlayerMain playerMain;
-    private String userAccount;
+    private PlayerMainView playerMainView;
+    private String playerAccount;
+    private Alliance playerAlliance;
 
     private UserManager userManager = UserManager.getUserManager();
     private AllianceManager allianceManager=AllianceManager.getAllianceManager();
@@ -16,28 +19,36 @@ public class PlayerMainController {
 
     public PlayerMainController(CentralController centralController) {
         this.centralController = centralController;
-        this.playerMain = centralController.getPlayerMainView();
+        this.playerMainView = centralController.getPlayerMainView();
     }
 
     public void initPlayerMainController() {
-        playerMain.setMenuItemListener("查看當前聯盟", e -> viewCurrentAlliance(userAccount));
-        playerMain.setMenuItemListener("申請加入聯盟", e -> applyForAlliance());
-        playerMain.setMenuItemListener("創立聯盟", e -> createAlliance());
-        playerMain.setMenuItemListener("退出聯盟", e -> quitAlliance());
-        playerMain.setMenuItemListener("查看當前賽事", e -> viewCurrentCompetition());
-        playerMain.setMenuItemListener("競賽紀錄", e -> competitionRecord());
-        playerMain.setMenuItemListener("更改使用者名稱", e -> changeUsername());
-        playerMain.setMenuItemListener("更改密碼", e -> changePassword());
-        playerMain.setMenuItemListener("登出", e -> logout());
+        playerMainView.setMenuItemListener("查看當前聯盟", e -> viewCurrentAlliance(playerAlliance));
+        playerMainView.setMenuItemListener("申請加入聯盟", e -> applyForAlliance());
+        playerMainView.setMenuItemListener("創立聯盟", e -> createAlliance());
+        playerMainView.setMenuItemListener("退出聯盟", e -> quitAlliance());
+        playerMainView.setMenuItemListener("查看當前賽事", e -> viewCurrentCompetition());
+        playerMainView.setMenuItemListener("競賽紀錄", e -> competitionRecord());
+        playerMainView.setMenuItemListener("更改使用者名稱", e -> changeUsername());
+        playerMainView.setMenuItemListener("更改密碼", e -> changePassword());
+        playerMainView.setMenuItemListener("登出", e -> logout());
     }
 
     public void setUserIdentity(String account) {
-        this.userAccount=account;
+        this.playerAccount =account;
+        this.playerAlliance= allianceManager.getPlayerAllianceIfExists(account);
     }
 
     // 分別為每個菜單項目定義一個方法
-    private void viewCurrentAlliance(String userIdentity) {
-
+    private void viewCurrentAlliance(Alliance playerAlliance) {
+        if (playerAlliance == null) {
+            centralController.getErrorView().setHintLabel("您尚未加入聯盟", Color.RED);
+        }
+        else {
+            //centralController.getAllianceMainController();
+            playerMainView.setVisible(false);
+            centralController.getAllianceMainView().setVisible(true);
+        }
     }
 
     private void applyForAlliance() {

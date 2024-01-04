@@ -2,12 +2,14 @@ package Controllers;
 
 import Models.User;
 import Models.UserManager;
-import Views.SignUp;
+import Views.SignUpView;
+
+import java.awt.*;
 
 
 public class SignUpController {
     private CentralController centralController;
-    private SignUp signUpView;
+    private SignUpView signUpView;
     private UserManager userManager=UserManager.getUserManager();
 
 
@@ -27,16 +29,14 @@ public class SignUpController {
         User.UserType type=userManager.getUserTypeIfUserExists(account);
 
         if (type == User.UserType.REGULAR_USER) {
-            centralController.getErrorView().setErrorLabel("帳號已存在");
-            centralController.getErrorView().setVisible(true);
+            centralController.getErrorView().setHintLabel("帳號已存在，不須註冊",Color.RED);
         }
         else if (type == User.UserType.None){
             userManager.addUser(new User(name,account,password, User.UserType.REGULAR_USER));
-            System.out.println("成功建立");
+            centralController.getErrorView().setHintLabel("註冊成功",Color.GREEN);
         }
         else {
-            centralController.getErrorView().setErrorLabel("特殊身分");
-            centralController.getErrorView().setVisible(true);
+            centralController.getErrorView().setHintLabel("特殊身分不須註冊",Color.RED);
         }
 
     }

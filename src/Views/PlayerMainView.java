@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class PlayerMain extends JFrame {
+public class PlayerMainView extends JFrame {
 
     // 定義菜單項目
     JMenuItem viewCurrentAllianceItem;
@@ -17,7 +17,7 @@ public class PlayerMain extends JFrame {
     JMenuItem changePasswordItem;
     JMenuItem logoutItem;
 
-    public PlayerMain() {
+    public PlayerMainView() {
         setTitle("LBN 大巨巢");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -105,10 +105,4 @@ public class PlayerMain extends JFrame {
             }
         }
     }
-
-
-public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new PlayerMain().setVisible(true));
-    }
-
 }

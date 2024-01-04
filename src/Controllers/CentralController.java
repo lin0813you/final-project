@@ -1,32 +1,31 @@
 package Controllers;
 
 import Views.*;
-import Views.Error;
+import Views.HintView;
 
 public class CentralController {
     private static final CentralController instance = new CentralController();
-    private Login loginView;
-    private SignUp signUpView;
-    private Error errorView;
-    private AllianceMain allianceMainView;
-    private PlayerMain playerMainView;
+    private LoginView loginView;
+    private SignUpView signUpView;
+    private HintView hintView;
+    private AllianceMainView allianceMainView;
+    private PlayerMainView playerMainView;
     private LoginController loginController;
     private SignUpController signUpController;
     private AllianceMainController allianceMainController;
     private PlayerMainController playerMainController;
 
     private CentralController() {
-        this.loginView = new Login();
-        this.errorView = new Error();
-        this.signUpView = new SignUp();
-        this.playerMainView =new PlayerMain();
-        this.allianceMainView= new AllianceMain();
+        this.loginView = new LoginView();
+        this.hintView = new HintView();
+        this.signUpView = new SignUpView();
+        this.playerMainView =new PlayerMainView();
+        this.allianceMainView= new AllianceMainView();
         this.loginController = new LoginController(this);
         this.signUpController = new SignUpController(this);
         this.playerMainController =new PlayerMainController(this);
         this.allianceMainController =new AllianceMainController(this);
     }
-
 
 
     public void initControllers() {
@@ -39,23 +38,23 @@ public class CentralController {
         return instance;
     }
 
-    public Login getLoginView() {
+    public LoginView getLoginView() {
         return loginView;
     }
 
-    public Error getErrorView() {
-        return errorView;
+    public HintView getErrorView() {
+        return hintView;
     }
 
-    public SignUp getSignUpView() {
+    public SignUpView getSignUpView() {
         return signUpView;
     }
 
-    public PlayerMain getPlayerMainView() {
+    public PlayerMainView getPlayerMainView() {
         return playerMainView;
     }
 
-    public AllianceMain getAllianceMainView() {
+    public AllianceMainView getAllianceMainView() {
         return allianceMainView;
     }
 

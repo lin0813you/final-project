@@ -19,6 +19,21 @@ public class AllianceManager {
         return allianceManager;
     }
 
+    public Alliance getPlayerAllianceIfExists(String account) {
+        // 遍歷所有聯盟
+        for (Alliance alliance : alliances) {
+            // 檢查每個聯盟的成員
+            for (User user : alliance.getMember()) {
+                // 如果找到匹配的玩家
+                if (user.getAccount().equals(account)) {
+                    // 返回這個聯盟
+                    return alliance;
+                }
+            }
+        }
+        // 如果沒有找到匹配的聯盟，返回 null
+        return null;
+    }
 
 }
 

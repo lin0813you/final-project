@@ -3,7 +3,7 @@ package Views;
 import javax.swing.*;
 import java.awt.*;
 
-public class Login extends JFrame {
+public class LoginView extends JFrame {
 
     JButton loginButton;
     JButton registerButton;
@@ -11,7 +11,7 @@ public class Login extends JFrame {
     JTextField userText;
     JPasswordField passwordText;
 
-    public Login() {
+    public LoginView() {
         // 設置窗口標題和大小
         setTitle("Log in");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

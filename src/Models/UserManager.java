@@ -11,9 +11,9 @@ public class UserManager {
     // 私有構造函數
     private UserManager() {
         users = new ArrayList<>();
-        users.add(new User("046", "0908336866", "password", User.UserType.ADMINISTRATOR));
-        users.add(new User("advertiser", "advertiser", "password", User.UserType.ADVERTISER));
-        users.add(new User("user0123", "user", "password", User.UserType.REGULAR_USER));
+        users.add(new User("046", "046", "046", User.UserType.ADMINISTRATOR));
+        users.add(new User("ad", "ad", "ad", User.UserType.ADVERTISER));
+        users.add(new User("user", "user", "user", User.UserType.REGULAR_USER));
 
     }
 
@@ -95,8 +95,6 @@ public class UserManager {
         }
         return password.toString();
     }
-
-
 
 }
 

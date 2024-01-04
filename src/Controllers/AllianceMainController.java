@@ -1,11 +1,11 @@
 package Controllers;
 
 import Models.AllianceManager;
-import Views.AllianceMain;
+import Views.AllianceMainView;
 
 public class AllianceMainController {
     private CentralController centralController;
-    private AllianceMain allianceMainView;
+    private AllianceMainView allianceMainView;
     private AllianceManager allianceManager= AllianceManager.getAllianceManager();
     public AllianceMainController(CentralController centralController) {
         this.centralController=centralController;

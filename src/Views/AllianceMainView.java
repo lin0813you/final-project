@@ -3,7 +3,7 @@ package Views;
 import javax.swing.*;
 import java.awt.*;
 
-public class AllianceMain extends JFrame {
+public class AllianceMainView extends JFrame {
     private JButton membersButton;
     private JButton assignmentButton;
     private JButton resourceButton;
@@ -13,7 +13,7 @@ public class AllianceMain extends JFrame {
     private JButton settingButton;
     private JTextArea textArea;
 
-    public AllianceMain() {
+    public AllianceMainView() {
         // 设置窗口标题和大小
         setTitle("聯盟");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -85,16 +85,5 @@ public class AllianceMain extends JFrame {
 
     public void setTextArea(String output) {
         this.textArea.setText(output);
-    }
-
-    public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            try {
-                Views.AllianceMain window = new Views.AllianceMain();
-                window.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
     }
 }

@@ -2,11 +2,13 @@ package Controllers;
 
 import Models.User;
 import Models.UserManager;
-import Views.Login;
+import Views.LoginView;
+
+import java.awt.*;
 
 public class LoginController {
     private CentralController centralController;
-    private Login loginView;
+    private LoginView loginView;
     private UserManager userManager = UserManager.getUserManager();
 
     public LoginController(CentralController centralController) {
@@ -23,15 +25,14 @@ public class LoginController {
     private void loginButtonClick(String account, String password) {
         User.UserType type = userManager.getUserTypeIfUserExists(account);
         if (type == User.UserType.None) {
-            centralController.getErrorView().setErrorLabel("帳號不存在，請先註冊");
-            centralController.getErrorView().setVisible(true);
+            centralController.getErrorView().setHintLabel("查無帳號，請先註冊", Color.RED);
         }
         else {
             boolean VerifyResult = userManager.verifyAccount(account, password);
             if (VerifyResult) {
                 if (type == User.UserType.REGULAR_USER) {
-                    loginView.setVisible(false);
                     centralController.getPlayerMainController().setUserIdentity(account);
+                    loginView.setVisible(false);
                     centralController.getPlayerMainView().setVisible(true);
                 }
                 else if (type == User.UserType.ADMINISTRATOR) {
@@ -42,8 +43,7 @@ public class LoginController {
                 }
             }
             else {
-                centralController.getErrorView().setErrorLabel("密碼錯誤");
-                centralController.getErrorView().setVisible(true);
+                centralController.getErrorView().setHintLabel("密碼錯誤",Color.RED);
             }
         }
 

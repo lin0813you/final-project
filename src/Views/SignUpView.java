@@ -3,14 +3,14 @@ package Views;
 import javax.swing.*;
 import java.awt.*;
 
-public class SignUp extends JFrame {
+public class SignUpView extends JFrame {
     JTextField nameTextField;
     JTextField accountTextField;
     JPasswordField passwordTextField;
     JButton signUpButton;
     JButton backButton;
 
-    public SignUp() {
+    public SignUpView() {
         // 設置窗口標題和大小
         setTitle("Sign Up");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
