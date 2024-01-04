@@ -34,7 +34,7 @@ public class UserManager {
 
     public User.UserType getUserTypeIfUserExists(String account) {
         for (User user : users) {
-            if (user.getPhoneNumber().equals(account)) {
+            if (user.getAccount().equals(account)) {
                 return user.getUserType();
             }
         }
@@ -42,7 +42,7 @@ public class UserManager {
     }
     public boolean verifyAccount(String account,String password) {
         for (User user : users) {
-            if (user.getPhoneNumber().equals(account) && user.getPassword().equals(password)) {
+            if (user.getAccount().equals(account) && user.getPassword().equals(password)) {
                 return true;
             }
         }

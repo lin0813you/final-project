@@ -3,7 +3,7 @@ package Models;
 public class User {
     // 定義私有屬性
     private String name; // 使用者名稱
-    private String phoneNumber; // 手機號碼
+    private String account; // 手機號碼
     private String password; // 密碼
     private UserType userType; // 使用者類別
 
@@ -18,9 +18,9 @@ public class User {
 
 
     // 建構子
-    public User(String name, String phoneNumber, String password, UserType userType) {
+    public User(String name, String account, String password, UserType userType) {
         this.name = name;
-        this.phoneNumber = phoneNumber;
+        this.account = account;
         this.password = password;
         this.userType = userType;
     }
@@ -34,12 +34,12 @@ public class User {
         this.name = name;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getAccount() {
+        return account;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setAccount(String account) {
+        this.account = account;
     }
 
     public String getPassword() {

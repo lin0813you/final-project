@@ -58,6 +58,22 @@ public class CentralController {
     public AllianceMain getAllianceMainView() {
         return allianceMainView;
     }
+
+    public LoginController getLoginController() {
+        return loginController;
+    }
+
+    public SignUpController getSignUpController() {
+        return signUpController;
+    }
+
+    public AllianceMainController getAllianceMainController() {
+        return allianceMainController;
+    }
+
+    public PlayerMainController getPlayerMainController() {
+        return playerMainController;
+    }
 }
 
 

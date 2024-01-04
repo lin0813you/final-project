@@ -31,8 +31,8 @@ public class LoginController {
             if (VerifyResult) {
                 if (type == User.UserType.REGULAR_USER) {
                     loginView.setVisible(false);
-                    centralController.getAllianceMainView().setVisible(true);
-                    System.out.println("進入玩家主頁面");
+                    centralController.getPlayerMainController().setUserIdentity(account);
+                    centralController.getPlayerMainView().setVisible(true);
                 }
                 else if (type == User.UserType.ADMINISTRATOR) {
                     System.out.println("進入廣告商頁面");
