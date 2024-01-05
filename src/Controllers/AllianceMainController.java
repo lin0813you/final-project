@@ -23,7 +23,7 @@ public class AllianceMainController {
 
 
     private void membersButtonClick() {
-
+        //顯示聯盟成員
     }
     private void applyButtonClick() {
     }

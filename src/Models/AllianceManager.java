@@ -8,11 +8,10 @@ public class AllianceManager {
 
     private AllianceManager() {
         alliances = new ArrayList<>();
-
         UserManager userManager = UserManager.getUserManager();
 
         // 創建新的聯盟
-        alliances.add(new Alliance("haha", userManager.generateRandomUsers(10), "no", userManager.generateRandomUsers(10), "no"));
+        alliances.add(new Alliance("haha", userManager.generateRandomUsers(10), "no", userManager.generateRandomUsers(10), "no",userManager.getUserIfExists("user")));
     }
 
     public static AllianceManager getAllianceManager() {

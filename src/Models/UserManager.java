@@ -32,6 +32,15 @@ public class UserManager {
         return users;
     }
 
+    public User getUserIfExists(String account) {
+        for (User user : users) {
+            if (user.getAccount().equals(account)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     public User.UserType getUserTypeIfUserExists(String account) {
         for (User user : users) {
             if (user.getAccount().equals(account)) {

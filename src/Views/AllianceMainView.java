@@ -87,3 +87,6 @@ public class AllianceMainView extends JFrame {
         this.textArea.setText(output);
     }
 }
+
+
+

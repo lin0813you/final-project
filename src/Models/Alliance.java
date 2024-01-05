@@ -9,14 +9,16 @@ public class Alliance {
     private String recruitInfo;
     private ArrayList<User> applyPlayer;
     private String announcement;
+    private User owner;
 
 
-    public Alliance(String name, ArrayList<User> member, String recruitInfo, ArrayList<User> applyPlayer, String announcement) {
+    public Alliance(String name, ArrayList<User> member, String recruitInfo, ArrayList<User> applyPlayer, String announcement,User owner) {
         this.name = name;
         this.member = member;
         this.recruitInfo = recruitInfo;
         this.applyPlayer = applyPlayer;
         this.announcement = announcement;
+        this.owner=owner;
     }
 
     public String getName() {
@@ -39,4 +41,7 @@ public class Alliance {
         return announcement;
     }
 
+    public User getOwner() {
+        return owner;
+    }
 }
