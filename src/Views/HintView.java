@@ -2,11 +2,13 @@ package Views;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class HintView extends JFrame {
 
-    private JButton confirmButton;
-    private JLabel hintLabel;
+    private final JButton confirmButton;
+    private final JLabel hintLabel;
 
     public HintView() {
         // 設置窗口標題和大小
@@ -40,6 +42,14 @@ public class HintView extends JFrame {
         // 設置圖標
         ImageIcon icon = new ImageIcon("jetbrains://idea/navigate/reference?project=final&path=resources/error.png"); // 更改為實際的圖標路徑
         setIconImage(icon.getImage());
+
+        confirmButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // 關閉窗口
+                dispose();
+            }
+        });
 
     }
 

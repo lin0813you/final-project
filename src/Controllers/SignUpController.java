@@ -8,9 +8,9 @@ import java.awt.*;
 
 
 public class SignUpController {
-    private CentralController centralController;
-    private SignUpView signUpView;
-    private UserManager userManager=UserManager.getUserManager();
+    private final CentralController centralController;
+    private final SignUpView signUpView;
+    private final UserManager userManager=UserManager.getUserManager();
 
 
     public SignUpController(CentralController centralController) {
@@ -29,14 +29,14 @@ public class SignUpController {
         User.UserType type=userManager.getUserTypeIfUserExists(account);
 
         if (type == User.UserType.REGULAR_USER) {
-            centralController.getErrorView().setHintLabel("帳號已存在，不須註冊",Color.RED);
+            centralController.getHintView().setHintLabel("帳號已存在，不須註冊",Color.RED);
         }
         else if (type == User.UserType.None){
             userManager.addUser(new User(name,account,password, User.UserType.REGULAR_USER));
-            centralController.getErrorView().setHintLabel("註冊成功",Color.GREEN);
+            centralController.getHintView().setHintLabel("註冊成功",Color.GREEN);
         }
         else {
-            centralController.getErrorView().setHintLabel("特殊身分不須註冊",Color.RED);
+            centralController.getHintView().setHintLabel("特殊身分不須註冊",Color.RED);
         }
 
     }

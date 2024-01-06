@@ -15,14 +15,29 @@ public class User {
         None, //不存在
     }
 
-
-
     // 建構子
     public User(String name, String account, String password, UserType userType) {
         this.name = name;
         this.account = account;
         this.password = password;
         this.userType = userType;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        User user = (User) obj;
+        return account.equals(user.account); // 假設帳號唯一且不能為 null
+    }
+
+    @Override
+    public int hashCode() {
+        return account.hashCode(); // 假設帳號不能為 null
     }
 
     // getter 和 setter 方法

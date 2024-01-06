@@ -4,9 +4,9 @@ import Models.AllianceManager;
 import Views.AllianceMainView;
 
 public class AllianceMainController {
-    private CentralController centralController;
-    private AllianceMainView allianceMainView;
-    private AllianceManager allianceManager= AllianceManager.getAllianceManager();
+    private final CentralController centralController;
+    private final AllianceMainView allianceMainView;
+    private final AllianceManager allianceManager= AllianceManager.getAllianceManager();
     public AllianceMainController(CentralController centralController) {
         this.centralController=centralController;
         this.allianceMainView =centralController.getAllianceMainView();
@@ -26,6 +26,7 @@ public class AllianceMainController {
         //顯示聯盟成員
     }
     private void applyButtonClick() {
+
     }
     private void informationButtonClick() {
     }

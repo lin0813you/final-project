@@ -7,9 +7,9 @@ import Views.LoginView;
 import java.awt.*;
 
 public class LoginController {
-    private CentralController centralController;
-    private LoginView loginView;
-    private UserManager userManager = UserManager.getUserManager();
+    private final CentralController centralController;
+    private final LoginView loginView;
+    private final UserManager userManager = UserManager.getUserManager();
 
     public LoginController(CentralController centralController) {
         this.centralController = centralController;
@@ -23,27 +23,35 @@ public class LoginController {
 
 
     private void loginButtonClick(String account, String password) {
-        User.UserType type = userManager.getUserTypeIfUserExists(account);
-        if (type == User.UserType.None) {
-            centralController.getErrorView().setHintLabel("查無帳號，請先註冊", Color.RED);
+
+        User user =userManager.getUserIfExists(account);
+        User.UserType userType;
+        if(user == null) {
+            userType = User.UserType.None;
+        }
+        else userType=user.getUserType();
+
+        if (userType == User.UserType.None) {
+            centralController.getHintView().setHintLabel("查無帳號，請先註冊", Color.RED);
         }
         else {
-            boolean VerifyResult = userManager.verifyAccount(account, password);
-            if (VerifyResult) {
-                if (type == User.UserType.REGULAR_USER) {
-                    centralController.getPlayerMainController().setUserIdentity(account);
+            boolean verifyResult = userManager.verifyAccount(account, password);
+            if (verifyResult) {
+                if (userType == User.UserType.REGULAR_USER) {
+                    centralController.getPlayerMainController().setUserIdentity(user);
                     loginView.setVisible(false);
                     centralController.getPlayerMainView().setVisible(true);
                 }
-                else if (type == User.UserType.ADMINISTRATOR) {
-                    System.out.println("進入廣告商頁面");
+                else if (userType == User.UserType.ADMINISTRATOR) {
+                    loginView.setVisible(false);
+                    centralController.getAdvertiserView().setVisible(true);
                 }
-                else if (type == User.UserType.ADVERTISER) {
-                    System.out.println("進入管理者介面");
+                else if (userType == User.UserType.ADVERTISER) {
+                    // TODO
                 }
             }
             else {
-                centralController.getErrorView().setHintLabel("密碼錯誤",Color.RED);
+                centralController.getHintView().setHintLabel("密碼錯誤",Color.RED);
             }
         }
 

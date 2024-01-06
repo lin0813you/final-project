@@ -6,7 +6,7 @@ import java.util.Random;
 public class UserManager {
     // 使用私有的靜態最終實例
     private static final UserManager userManager = new UserManager();
-    private ArrayList<User> users;
+    private final ArrayList<User> users;
 
     // 私有構造函數
     private UserManager() {
@@ -14,6 +14,7 @@ public class UserManager {
         users.add(new User("046", "046", "046", User.UserType.ADMINISTRATOR));
         users.add(new User("ad", "ad", "ad", User.UserType.ADVERTISER));
         users.add(new User("user", "user", "user", User.UserType.REGULAR_USER));
+        users.add(new User("bin","bin","bin", User.UserType.REGULAR_USER));
 
     }
 

@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Alliance {
 
-    private String name;
-    private ArrayList<User> member;
-    private String recruitInfo;
-    private ArrayList<User> applyPlayer;
-    private String announcement;
-    private User owner;
+    private final String name;
+    private final ArrayList<User> member;
+    private final String recruitInfo;
+    private final ArrayList<User> applyPlayer;
+    private final String announcement;
+    private final User owner;
 
 
     public Alliance(String name, ArrayList<User> member, String recruitInfo, ArrayList<User> applyPlayer, String announcement,User owner) {
@@ -40,6 +40,7 @@ public class Alliance {
     public String getAnnouncement() {
         return announcement;
     }
+
 
     public User getOwner() {
         return owner;
