@@ -44,10 +44,11 @@ public class LoginController {
                 }
                 else if (userType == User.UserType.ADMINISTRATOR) {
                     loginView.setVisible(false);
-                    centralController.getAdvertiserView().setVisible(true);
+                    centralController.getAdministratorView().setVisible(true);
                 }
                 else if (userType == User.UserType.ADVERTISER) {
-                    // TODO
+                    loginView.setVisible(false);
+                    centralController.getAdvertiserView().setVisible(true);
                 }
             }
             else {

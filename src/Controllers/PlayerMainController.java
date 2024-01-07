@@ -49,7 +49,7 @@ public class PlayerMainController {
             centralController.getHintView().setHintLabel("您尚未加入聯盟", Color.RED);
         }
         else {
-            //centralController.getAllianceMainController();
+            centralController.getAllianceMainController().setUserIdentity(currentPlayer,playerAlliance);
             playerMainView.setVisible(false);
             centralController.getAllianceMainView().setVisible(true);
         }

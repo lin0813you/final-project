@@ -87,6 +87,10 @@ public class AllianceManager {
         alliances.add(newAlliance);
         return "創立完成，點擊返回回到主頁面";
     }
+    public String[] getAllianceMember(){
+        //TODO 這個方法將獲取該聯盟的成員，並整理成String[]回傳給Controller
+        return null;
+    }
 
     private boolean allianceNameExists(String name) {
         for (Alliance alliance : alliances) {

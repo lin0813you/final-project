@@ -13,6 +13,7 @@ public class CentralController {
     private final AdvertiserView advertiserView;
     private final ApplyAllianceView applyAllianceView;
     private final CreateAllianceView createAllianceView;
+    private final AdministratorView administratorView;
     private final LoginController loginController;
     private final SignUpController signUpController;
     private final AllianceMainController allianceMainController;
@@ -20,6 +21,7 @@ public class CentralController {
     private final AdvertiserController advertiserController;
     private final ApplyAllianceController applyAllianceController;
     private final CreateAllianceController createAllianceController;
+    private final AdministratorController administratorController;
     private CentralController() {
         this.loginView = new LoginView();
         this.hintView = new HintView();
@@ -29,6 +31,7 @@ public class CentralController {
         this.applyAllianceView =new ApplyAllianceView();
         this.advertiserView =new AdvertiserView();
         this.createAllianceView = new CreateAllianceView();
+        this.administratorView=new AdministratorView();
         this.loginController = new LoginController(this);
         this.signUpController = new SignUpController(this);
         this.playerMainController =new PlayerMainController(this);
@@ -36,6 +39,7 @@ public class CentralController {
         this.applyAllianceController =new ApplyAllianceController(this);
         this.advertiserController =new AdvertiserController(this);
         this.createAllianceController = new CreateAllianceController(this);
+        this.administratorController =new AdministratorController(this);
     }
 
 
@@ -47,6 +51,7 @@ public class CentralController {
         applyAllianceController.initApplyAllianceController();
         advertiserController.initAdvertiserController();
         createAllianceController.initCreateAllianceController();
+        administratorController.initAdministratorController();
     }
 
     public static CentralController getInstance() {
@@ -82,6 +87,11 @@ public class CentralController {
     public CreateAllianceView getCreateAllianceView() {
         return createAllianceView;
     }
+
+    public AdministratorView getAdministratorView() {
+        return administratorView;
+    }
+
     public LoginController getLoginController() {
         return loginController;
     }
@@ -109,7 +119,9 @@ public class CentralController {
         return createAllianceController;
     }
 
-
+    public AdministratorController getAdministratorController() {
+        return administratorController;
+    }
 }
 
 

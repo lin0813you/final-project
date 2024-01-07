@@ -11,10 +11,10 @@ public class AllianceMainView extends JFrame {
     private JButton rankingButton;
     private JButton applyButton;
     private JButton settingButton;
-    private JTextArea textArea;
+    private JList<String> displayList; // 將 JTextArea 替換為 JList
 
     public AllianceMainView() {
-        // 设置窗口标题和大小
+        // 設置視窗標題和大小
         setTitle("聯盟");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1280, 720);
@@ -29,18 +29,20 @@ public class AllianceMainView extends JFrame {
         lblNewLabel.setBounds(10, 10, 128, 35);
         add(lblNewLabel);
 
-        textArea = new JTextArea();
-        textArea.setBackground(Color.WHITE);
-        textArea.setFont(new Font("Monospaced", Font.PLAIN, 15));
-        textArea.setBounds(291, 40, 747, 615);
-        add(textArea);
+        displayList = new JList<>(); // 創建 JList
+        displayList.setBackground(Color.WHITE);
+        displayList.setFont(new Font("Monospaced", Font.PLAIN, 15));
+        displayList.setBounds(291, 40, 747, 615);
+        JScrollPane scrollPane = new JScrollPane(displayList); // 為 JList 添加滾動條
+        scrollPane.setBounds(291, 40, 747, 615);
+        add(scrollPane);
 
         membersButton = createButton("聯盟成員", 10, 137, 128, 47);
         assignmentButton = createButton("聯盟任務", 10, 197, 128, 47);
         resourceButton = createButton("聯盟資源", 10, 437, 128, 47);
-        informationButton = createButton("聯盟通知與訊息", 10, 377, 128, 47);
-        rankingButton = createButton("公會排名與統計", 10, 257, 128, 47);
-        applyButton = createButton("招募與申請", 10, 317, 128, 47);
+        informationButton = createButton("聯盟公告", 10, 377, 128, 47);
+        rankingButton = createButton("聯盟排名", 10, 257, 128, 47);
+        applyButton = createButton("申請名單", 10, 317, 128, 47);
         settingButton = createButton("聯盟設定", 10, 497, 128, 47);
     }
 
@@ -52,7 +54,7 @@ public class AllianceMainView extends JFrame {
         return button;
     }
 
-    // 公共方法以供外部访问组件
+    // 公共方法以供外部訪問組件
     public JButton getMembersButton() {
         return membersButton;
     }
@@ -81,12 +83,15 @@ public class AllianceMainView extends JFrame {
         return settingButton;
     }
 
+    public JList<String> getDisplayList() {
+        return displayList;
+    }
 
-
-    public void setTextArea(String output) {
-        this.textArea.setText(output);
+    public void setDisplayListData(String[] data) {
+        displayList.setListData(data);
     }
 }
+
 
 
 
