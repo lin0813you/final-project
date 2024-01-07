@@ -1,6 +1,7 @@
 package Models;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class AllianceManager {
     private static final AllianceManager allianceManager = new AllianceManager();
@@ -65,6 +66,7 @@ public class AllianceManager {
             }
         }
     }
+    //移除某個聯盟的玩家
     public void removePlayerAlliance(Alliance alliance, User user) {
         if (alliance != null && user != null) {
             // 從聯盟的成員列表中移除用戶
@@ -73,6 +75,7 @@ public class AllianceManager {
             alliance.getApplyPlayer().remove(user);
         }
     }
+    //新建一個聯盟資料
     public String addNewAlliance(String name, String info, String recruitInfo, User owner) {
         // 檢查名稱是否為空或聯盟是否已經存在
         if (name == null || name.isEmpty() || owner == null) {
@@ -87,11 +90,18 @@ public class AllianceManager {
         alliances.add(newAlliance);
         return "創立完成，點擊返回回到主頁面";
     }
-    public String[] getAllianceMember(){
-        //TODO 這個方法將獲取該聯盟的成員，並整理成String[]回傳給Controller
-        return null;
+
+    // 獲取除了擁有者外的所有成員名稱和電話號碼後五碼
+    public String[] getAllianceMember(Alliance alliance) {
+        ArrayList<String> memberNames = alliance.getMember().stream()
+                .filter(member -> !member.equals(alliance.getOwner()))
+                .map(member -> member.getName() + "#" + getLastFiveDigits(member.getAccount()))
+                .collect(Collectors.toCollection(ArrayList::new));
+
+        return memberNames.toArray(new String[0]);
     }
 
+    //判斷此聯盟是否存在
     private boolean allianceNameExists(String name) {
         for (Alliance alliance : alliances) {
             if (alliance.getName().equals(name)) {
@@ -99,6 +109,9 @@ public class AllianceManager {
             }
         }
         return false;
+    }
+    private String getLastFiveDigits(String account) {
+        return account.length() > 5 ? account.substring(account.length() - 6) : account;
     }
 }
 

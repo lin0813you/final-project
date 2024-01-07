@@ -22,6 +22,7 @@ public class AllianceMainController {
         allianceMainView.getApplyButton().addActionListener(e -> applyButtonClick());
         allianceMainView.getInformationButton().addActionListener(e -> informationButtonClick());
         allianceMainView.getSettingButton().addActionListener(e -> settingButtonClick());
+        allianceMainView.getBackButton().addActionListener(e -> backButtonClick());
     }
     public void setUserIdentity(User user,Alliance playerAlliance) {
         this.currentPlayer =user;
@@ -30,7 +31,8 @@ public class AllianceMainController {
 
 
     private void membersButtonClick() {
-        //TODO 調用AllianceManager的方法獲取要顯示的資料，顯示當前聯盟成員清單，不須顯示Owner
+        String[] members = allianceManager.getAllianceMember(playerAlliance);
+        allianceMainView.setDisplayListData(members);
     }
     private void applyButtonClick() {
 
@@ -38,5 +40,9 @@ public class AllianceMainController {
     private void informationButtonClick() {
     }
     private void settingButtonClick() {
+    }
+    private void backButtonClick() {
+        allianceMainView.setVisible(false);
+        centralController.getPlayerMainView().setVisible(true);
     }
 }

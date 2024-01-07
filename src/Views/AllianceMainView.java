@@ -8,7 +8,7 @@ public class AllianceMainView extends JFrame {
     private JButton assignmentButton;
     private JButton resourceButton;
     private JButton informationButton;
-    private JButton rankingButton;
+    private JButton backButton;
     private JButton applyButton;
     private JButton settingButton;
     private JList<String> displayList; // 將 JTextArea 替換為 JList
@@ -41,7 +41,7 @@ public class AllianceMainView extends JFrame {
         assignmentButton = createButton("聯盟任務", 10, 197, 128, 47);
         resourceButton = createButton("聯盟資源", 10, 437, 128, 47);
         informationButton = createButton("聯盟公告", 10, 377, 128, 47);
-        rankingButton = createButton("聯盟排名", 10, 257, 128, 47);
+        backButton = createButton("返回首頁", 10, 257, 128, 47);
         applyButton = createButton("申請名單", 10, 317, 128, 47);
         settingButton = createButton("聯盟設定", 10, 497, 128, 47);
     }
@@ -71,8 +71,8 @@ public class AllianceMainView extends JFrame {
         return informationButton;
     }
 
-    public JButton getRankingButton() {
-        return rankingButton;
+    public JButton getBackButton() {
+        return backButton;
     }
 
     public JButton getApplyButton() {

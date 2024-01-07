@@ -63,16 +63,12 @@ public class UserManager {
         Random random = new Random();
         // 擴展的隨機英文名稱列表
         String[] names = {
-                "Andy", "John", "Emily", "Grace", "Michael",
-                "Sarah", "Chris", "Laura", "David", "Sophia",
-                "Daniel", "Emma", "James", "Olivia", "Robert",
-                "Linda", "William", "Jessica", "Joseph", "Karen",
-                "Lisa", "Kevin", "Mary", "George", "Barbara",
-                "Jennifer", "Jason", "Susan", "Paul", "Elizabeth",
-                "Richard", "Helen", "Thomas", "Sandra", "Steven",
-                "Ashley", "Mark", "Kimberly", "Brian", "Donna",
-                "Edward", "Michelle", "Ronald", "Carol", "Anthony",
-                "Amanda", "Kenneth", "Melissa", "Charles", "Deborah"
+                "Andy", "John", "Emily", "Grace", "Michael", "Sarah", "Chris", "Laura", "David", "Sophia", "Daniel", "Emma", "James", "Olivia", "Robert", "Linda", "William", "Jessica", "Joseph", "Karen",
+                "Lisa", "Kevin", "Mary", "George", "Barbara", "Jennifer", "Jason", "Susan", "Paul", "Elizabeth", "Richard", "Helen", "Thomas", "Sandra", "Steven", "Ashley", "Mark", "Kimberly", "Brian", "Donna",
+                "Edward", "Michelle", "Ronald", "Carol", "Anthony", "Amanda", "Kenneth", "Melissa", "Charles", "Deborah", "梅川醫福", "銅鑼灣扛報紙", "額阿尖", "頭蚊子叮", "拿佛珠砸耶穌",
+                "蒙奇D能兒", "轉角遇到怪", "善解人衣", "汗味戰警", "九頭龍閃到腰", "苗栗小五郎", "你看不見我", "打死我也不說", "剛好五個字", "左青龍右胖虎",
+                "乞丐中的霸主", "三重劉德華", "遙控電流香蕉紅燒雞翅膀", "咖哩不加辣", "翻滾吧牛宴", "皮卡丘打雷", "沙發上的土豆", "馬桶蓋戰士", "冰箱裡的企鵝", "鍵盤上的麵包屑", "拖鞋打蟑螂", "無敵炸雞腿", "青椒不加肉", "紙袋裡的貓",
+                "捷運忘了刷卡", "夜市烤香腸", "笑話說不完", "左手畫圓右手畫方", "熊貓眼大俠", "火鍋裡的蘿蔔", "桌子下的泡泡糖", "螞蟻背著糖", "晴天娃娃雨天哭"
         };
         String name = names[random.nextInt(names.length)];
 
