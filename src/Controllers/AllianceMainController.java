@@ -38,6 +38,13 @@ public class AllianceMainController {
 
     }
     private void informationButtonClick() {
+        String announcement = allianceManager.getAnnouncement(playerAlliance);
+
+        // 準備要顯示的數據
+        String[] dataToShow = { announcement };
+
+        // 將公告數據傳遞給 allianceMainView 的 displayList 以顯示
+        allianceMainView.setDisplayListData(dataToShow);
     }
     private void settingButtonClick() {
     }

@@ -10,6 +10,11 @@ public class AdministratorController {
         this.administratorView=centralController.getAdministratorView();
     }
     public void initAdministratorController() {
+        administratorView.getBackButton().addActionListener(e -> backButtonClick());
+    }
 
+    private void backButtonClick() {
+        administratorView.setVisible(false);
+        centralController.getLoginView().setVisible(true);
     }
 }

@@ -12,6 +12,11 @@ public class AdvertiserController {
     }
 
     public void initAdvertiserController() {
+        advertiserView.getPrevButton().addActionListener(e -> prevButtonClick());
+    }
 
+    private void prevButtonClick() {
+        advertiserView.setVisible(false);
+        centralController.getLoginView().setVisible(true);
     }
 }

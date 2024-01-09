@@ -79,7 +79,7 @@ public class AdvertiserView extends JFrame {
         gbcComboBox.insets = new Insets(0, 0, 20, 10);
         leftBottomPanel.add(adSchemeComboBox, gbcComboBox);
 
-        prevButton = new JButton("上一步");
+        prevButton = new JButton("返回");
         GridBagConstraints gbcPrevButton = new GridBagConstraints();
         gbcPrevButton.anchor = GridBagConstraints.NORTH;
         gbcPrevButton.insets = new Insets(0, 0, 5, 0);
@@ -161,12 +161,7 @@ public class AdvertiserView extends JFrame {
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new AdvertiserView();
-            }
-        });
+    public JButton getPrevButton() {
+        return prevButton;
     }
 }

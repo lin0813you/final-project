@@ -13,7 +13,7 @@ public class AllianceManager {
 
         // 創建新的聯盟
         alliances.add(new Alliance("尊督假督", userManager.generateRandomUsers(20), "哈哈", userManager.generateRandomUsers(10), "no",userManager.getUserIfExists("user")));
-        alliances.add(new Alliance("軟體系二次元大聯盟",userManager.generateRandomUsers(17),"就是肥宅",userManager.generateRandomUsers(7),"都是肥宅",userManager.getUserIfExists("bin")));
+        alliances.add(new Alliance("軟體系二次元大聯盟",userManager.generateRandomUsers(17),"有種過來",userManager.generateRandomUsers(7),"這裡是軟體系肥宅的聚集地，不用想了，大部分都有玩原神，盟主我本人是可莉玩家",userManager.getUserIfExists("bin")));
     }
 
     public static AllianceManager getAllianceManager() {
@@ -99,6 +99,13 @@ public class AllianceManager {
                 .collect(Collectors.toCollection(ArrayList::new));
 
         return memberNames.toArray(new String[0]);
+    }
+
+    public String getAnnouncement(Alliance alliance) {
+        if (alliance != null) {
+            return alliance.getAnnouncement();
+        }
+        return "無公告資訊"; // 或者您可以選擇返回 null 或其他預設值
     }
 
     //判斷此聯盟是否存在

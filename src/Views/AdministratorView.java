@@ -11,6 +11,7 @@ public class AdministratorView extends JFrame {
     private JLabel selectLabel;
     private JLabel userListLabel;
     private JLabel allianceListLabel;
+    private JButton backButton;
 
     public AdministratorView() {
         // 設置視窗標題和大小
@@ -56,6 +57,11 @@ public class AdministratorView extends JFrame {
         allianceListLabel.setFont(new Font("新細明體", Font.BOLD, 25));
         allianceListLabel.setBounds(771, 72, 199, 42);
         add(allianceListLabel);
+
+        backButton = new JButton("返回");
+        backButton.setFont(new Font("新細明體", Font.BOLD, 25));
+        backButton.setBounds(100, 600, 100, 50); // 您可以根據需要調整位置和大小
+        add(backButton);
     }
 
     // Getter 和 Setter 方法
@@ -81,5 +87,9 @@ public class AdministratorView extends JFrame {
 
     public void setAllianceList(String[] alliances) {
         allianceList.setListData(alliances);
+    }
+
+    public JButton getBackButton() {
+        return backButton;
     }
 }
