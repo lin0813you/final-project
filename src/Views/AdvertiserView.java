@@ -164,4 +164,41 @@ public class AdvertiserView extends JFrame {
     public JButton getPrevButton() {
         return prevButton;
     }
+
+    public JPanel getPreviewPanel() {
+        return previewPanel;
+    }
+
+    public String getDaysTextField() {
+        return daysTextField.getText();
+    }
+
+    public JTextField getAmountTextField() {
+        return amountTextField;
+    }
+
+    public JButton getConfirmButton() {
+        return confirmButton;
+    }
+
+    public JLabel getPreviewImageLabel() {
+        return previewImageLabel;
+    }
+
+    public JButton getCancelAdButton() {
+        return cancelAdButton;
+    }
+
+    public JButton getChooseFileButton() {
+        return chooseFileButton;
+    }
+
+    public JComboBox<String> getAdSchemeComboBox() {
+        return adSchemeComboBox;
+    }
+
+    public JButton getCalculateAmountButton() {
+        return calculateAmountButton;
+    }
+
 }

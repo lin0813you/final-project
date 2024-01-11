@@ -17,4 +17,19 @@ public class AdministratorController {
         administratorView.setVisible(false);
         centralController.getLoginView().setVisible(true);
     }
+
+
+
+    private void setUserStageButtonClick() {
+
+    }
+
+    private void setAllianceStageButtonClick(){
+
+    }
+
+    private void changeSettingButtonClick() {
+
+    }
+
 }
